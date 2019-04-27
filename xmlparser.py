@@ -43,6 +43,6 @@ def findByTown(coords, town):
 
     return coords
 
-print(findCoordByFeach("pay_for_internet_access", "город Уфа"))
+print(findCoordByFeach("pay_for_internet_access", "город Уфа")) #Выбираем по услуге и городу
 
 
