@@ -11,17 +11,22 @@ def help(bot, update):
 
 def helpme(bot, update):
     # подробнее об объекте update: https://core.telegram.org/bots/api#update
-    bot.sendMessage(chat_id=update.message.chat_id, text="Чем я могу Вам помочь?\n\n1)Подобрать для Вас подходящую услугу\n2)Связать Вас с техподдержкой.\nВведите только цифру!") 
-
-
+    bot.sendMessage(chat_id=update.message.chat_id, text="Чем я могу Вам помочь?\n\n1)Подобрать для Вас подходящую услугу\n2)Связать Вас с техподдержкой.\nВведите просто цифру как команду
+                !") 
+def two(bot, update):
+    bot.sendMessage(chat_id=update.message.chat_id, text="ссылка:<ссылка>")
+    
 
 updater = Updater(token='702809746:AAHmIm6mPpT1TLmkw1RqxsYF4SUfP2ebPqk')  # тут токен, который выдал вам Ботский Отец!
 
 start_handler = CommandHandler('start', start)  # этот обработчик реагирует только на команду /start
 helpme_handler = CommandHandler('helpme', helpme)  # этот обработчик реагирует только на команду /helpme
 help_handler = CommandHandler('help', help)  # этот обработчик реагирует только на команду /help
+two_handler = CommandHandler('2', two)
+
 
 updater.dispatcher.add_handler(start_handler)   # регистрируем в госреестре обработчиков
 updater.dispatcher.add_handler(helpme_handler)   # регистрируем в госреестре обработчиков
 updater.dispatcher.add_handler(help_handler)   # регистрируем в госреестре обработчиков
+updater.dispatcher.add_handler(two_handler)   # регистрируем в госреестре обработчиков
 updater.start_polling()  # поехали!
